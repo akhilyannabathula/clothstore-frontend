@@ -10,7 +10,7 @@ const RecentOrders = () => {
   const [users, setUsers] = useState([])
 
   const fetchData = () => {
-    fetch( baseURL+"stats", {
+    fetch( baseURL+"recent_orders", {
       method: 'GET',
       headers: {Authorization: 'Bearer '+secrets.token }
     }).then(response => {
