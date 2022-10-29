@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import secrets from "../configs/secrets.json"
 import JSONPretty from 'react-json-pretty';
 import { baseURL } from "../configs/urls";
+import { JsonToTable } from "react-json-to-table";
 
 
 console.log("hello "+baseURL)
@@ -28,7 +29,7 @@ const RecentOrders = () => {
 
   var JSONPrettyMon = require('react-json-pretty/dist/monikai');
   return (
-    <JSONPretty data={users} theme={JSONPrettyMon}></JSONPretty>
+    <JsonToTable json={users} />
   )
 }
 

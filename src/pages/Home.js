@@ -11,7 +11,7 @@ const defaultOption = options[0]
 export default  function Home() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>placing order funtionality shoud be here</h1>
     </div>
 
   )
