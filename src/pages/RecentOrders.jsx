@@ -67,7 +67,10 @@ const RecentOrders = () => {
       }
     }
 
-    else{ console.log("wrong password") }
+    else{ 
+      alert("wrong password")
+      console.log("wrong password") 
+    }
     
   
   }

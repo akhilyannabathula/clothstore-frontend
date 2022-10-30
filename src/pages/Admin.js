@@ -52,17 +52,24 @@ function get_price_data(unprocessed_data){
 export default function Admin() {
 
   var today = new Date();
+  var to_date = today.toJSON().substr(0, 10)
   today.setDate(1)
-  var formatted_date = today.toJSON().substr(0, 10)
+  var form_date = today.toJSON().substr(0, 10)
 
-  const [textboxValue, settextboxValue] = useState(formatted_date);
+  const [fromDate, setFromDate] = useState(form_date);
+  const [toDate, setToDate] = useState(to_date);
 
   const [users, setUsers] = useState([])
 
 
-  const handletextChange = event => {
-    settextboxValue(event.target.value);
-    console.log('value is:', event.target.value);
+  const handleFromDateChange = event => {
+    setFromDate(event.target.value);
+    console.log('from date is', event.target.value);
+  };
+
+  const handleToDateChange = event => {
+    setToDate(event.target.value);
+    console.log('to date is', event.target.value);
   };
 
   const fetchData = () => {
@@ -90,7 +97,7 @@ export default function Admin() {
 
   const handleClick = async () => {
     try {
-      const response = await fetch( baseURL+"stats?from_date="+textboxValue, {
+      const response = await fetch( baseURL+`stats?from_date=${fromDate}&to_date=${toDate}`, {
         method: 'GET',
         headers: {Authorization: 'Bearer '+secrets.token }
       });
@@ -106,12 +113,6 @@ export default function Admin() {
     console.log("button clieckd")
   
   }
-
-  const handleChange = event => {
-    settextboxValue(event.target.value);
-    console.log('value is:', event.target.value);
-  };
-
   
   
     return (
@@ -119,9 +120,11 @@ export default function Admin() {
         <div className='question-container'>
         <h1>charts</h1>
         <label>From Date YYYY-MM-DD </label>
-        <input type="text" onChange={handletextChange} value={textboxValue}></input>
+        <input type="text" onChange={handleFromDateChange} value={fromDate}></input>
+        <label>To Date</label>
+        <input type="text" onChange={handleToDateChange} value={toDate}></input>
         <button onClick={handleClick}>Filter again</button>
-        <ResponsiveContainer width="200%" height="100%">
+        <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -143,7 +146,7 @@ export default function Admin() {
           <Bar dataKey="L" fill="#34eb89" />
         </BarChart>
       </ResponsiveContainer>
-      <ResponsiveContainer width="200%" height="100%">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -166,7 +169,7 @@ export default function Admin() {
         </BarChart>
       </ResponsiveContainer>
 
-      <ResponsiveContainer width="200%" height="100%">
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart
           width={500}
           height={300}
