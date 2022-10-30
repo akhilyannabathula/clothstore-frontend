@@ -23,32 +23,39 @@ function Home() {
 
   const [mobileNumber, setMobileNumber] = useState('');
   const [size, setSize] = useState('S');
-  const [itemType, setItemType] = useState('');
+  const [itemType, setItemType] = useState('tshirt');
   const [price, setPrice] = useState(0);
   const [name, setName] = useState('');
   const [description, setdescription] = useState('');
   const [source, setSource] = useState('banglore');
+  const [password, setPassword] = useState('');
   
   
 
   const placeOrder = async () =>{
 
-    var post_data = { customer_name : name, phone_number : mobileNumber, items : items }
-    var final_data = JSON.stringify(post_data)
-    console.log(final_data)
+    if(password == 'secret'){
+
+        var post_data = { customer_name : name, phone_number : mobileNumber, items : items }
+        var final_data = JSON.stringify(post_data)
+        console.log(final_data)
 
 
-    
-    const deleteResponse = await fetch( baseURL+'orders', {
-      method: 'POST',
-      headers: {Authorization: 'Bearer '+secrets.token, 'Content-Type': 'application/json'},
-      body: final_data
-    });
+        
+        const deleteResponse = await fetch( baseURL+'orders', {
+          method: 'POST',
+          headers: {Authorization: 'Bearer '+secrets.token, 'Content-Type': 'application/json'},
+          body: final_data
+        });
 
-    if (!deleteResponse.ok) {
-      alert("!failed try again");
-    }
-    else{ alert("placed succesfully")}
+        if (!deleteResponse.ok) {
+          alert("!failed try again");
+        }
+        else{ alert("placed succesfully")}
+
+      }
+
+      else{alert("wrong password")}
 
   }
 
@@ -157,6 +164,15 @@ function Home() {
               <input 
                 value={description} 
                 onChange={e => setdescription(e.target.value)} 
+              />
+            </div>
+
+            <div>
+              <label>Admin Password</label>
+              <input 
+                value={password} 
+                type='password'
+                onChange={e => setPassword(e.target.value)} 
               />
             </div>
 
