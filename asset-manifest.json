@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/clothstore-frontend/static/css/main.dd477c0f.css",
-    "main.js": "/clothstore-frontend/static/js/main.5899f72c.js",
+    "main.js": "/clothstore-frontend/static/js/main.9fac712d.js",
     "index.html": "/clothstore-frontend/index.html",
     "main.dd477c0f.css.map": "/clothstore-frontend/static/css/main.dd477c0f.css.map",
-    "main.5899f72c.js.map": "/clothstore-frontend/static/js/main.5899f72c.js.map"
+    "main.9fac712d.js.map": "/clothstore-frontend/static/js/main.9fac712d.js.map"
   },
   "entrypoints": [
     "static/css/main.dd477c0f.css",
-    "static/js/main.5899f72c.js"
+    "static/js/main.9fac712d.js"
   ]
 }
