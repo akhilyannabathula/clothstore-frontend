@@ -12,8 +12,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/clothstore-frontend" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/recent" element={<RecentOrders />} />
+          <Route path="/clothstore-frontend/admin" element={<Admin />} />
+          <Route path="/clothstore-frontend/recent" element={<RecentOrders />} />
         </Routes>
       </div>
     </>
