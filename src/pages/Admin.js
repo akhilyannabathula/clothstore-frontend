@@ -51,8 +51,11 @@ function get_price_data(unprocessed_data){
   
 export default function Admin() {
 
+  var today = new Date();
+  today.setDate(1)
+  var formatted_date = today.toJSON().substr(0, 10)
 
-  const [textboxValue, settextboxValue] = useState('');
+  const [textboxValue, settextboxValue] = useState(formatted_date);
 
   const [users, setUsers] = useState([])
 
@@ -116,7 +119,7 @@ export default function Admin() {
         <div className='question-container'>
         <h1>charts</h1>
         <label>From Date YYYY-MM-DD </label>
-        <input type="text" onChange={handletextChange} ></input>
+        <input type="text" onChange={handletextChange} value={textboxValue}></input>
         <button onClick={handleClick}>Filter again</button>
         <ResponsiveContainer width="200%" height="100%">
         <BarChart
