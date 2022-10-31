@@ -193,7 +193,7 @@ export default function Admin() {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="amount" fill="#3366ff" />
+          <Bar dataKey="amount" fill="#34eb89" />
         </BarChart>
       </ResponsiveContainer>
 
