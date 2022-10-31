@@ -190,12 +190,11 @@ function Home() {
 
             <div>
             <label>Source</label>
-            <select value={size} onChange={e => setSource(e.target.value)} >
+            <select value={source} onChange={e => setSource(e.target.value)} >
                 <option value="banglore">banglore</option>
                 <option value="myntra">myntra</option>
                 <option value="ajio">ajio</option>
                 <option value="online">online</option>
-                <option value="38">38</option>
                 <option value="other">other</option>
               </select>
             </div>

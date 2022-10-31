@@ -144,6 +144,9 @@ export default function Admin() {
           <Bar dataKey="S" fill="#8884d8" />
           <Bar dataKey="M" fill="#82ca9d" />
           <Bar dataKey="L" fill="#34eb89" />
+          <Bar dataKey="XL" fill="#b3ff66" />
+          <Bar dataKey="XXL" fill="#f57e42" />
+          <Bar dataKey="other" fill="#f54242" />
         </BarChart>
       </ResponsiveContainer>
       <ResponsiveContainer width="100%" height="100%">
@@ -163,9 +166,13 @@ export default function Admin() {
           <YAxis />
           <Tooltip />
           <Legend />
+          <Bar dataKey="28" fill="#34eb89" />
           <Bar dataKey="30" fill="#8884d8" />
           <Bar dataKey="32" fill="#82ca9d" />
-          <Bar dataKey="34" fill="#34eb89" />
+          <Bar dataKey="34" fill="#b3ff66" />
+          <Bar dataKey="36" fill="#f57e42" />
+          <Bar dataKey="38" fill="#f542a4" />
+          <Bar dataKey="other" fill="#f54242" />
         </BarChart>
       </ResponsiveContainer>
 
