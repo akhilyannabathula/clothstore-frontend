@@ -1,6 +1,6 @@
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-import React, {useState} from 'react';
+import React, {useState , useEffect} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -29,7 +29,26 @@ function Home() {
   const [description, setdescription] = useState('');
   const [source, setSource] = useState('banglore');
   const [password, setPassword] = useState('');
+  const [appStatus, setappStatus] = useState('Down');
+
+
+
+  const invokeBackend = () => {
+    fetch( baseURL+"health", {
+      method: 'GET',
+      headers: {Authorization: 'Bearer '+secrets.token }
+    }).then(response => {
+        return response.json()  
+      })
+      .then(data => {
+        console.log(data)
+        setappStatus(data.status)
+      })
+  }
   
+  useEffect(() => {
+    invokeBackend()
+  }, [])
   
 
   const placeOrder = async () =>{
@@ -97,11 +116,10 @@ function Home() {
   
   return (
     <div className="container App">
-      
+      <h5>App status: {appStatus}</h5>
       <br /><br />
 
       <h2>Place Order</h2>
-
       <br/><br />
       
           <div>
@@ -126,19 +144,38 @@ function Home() {
 
             <div>
             <label>Item Type</label>
-              <input 
-                value={itemType} 
-                onChange={e => setItemType(e.target.value)} 
-              />
+            <select value={itemType} onChange={e => setItemType(e.target.value)} >
+                <option value="tshirt">Tshirt</option>
+                <option value="jean">Jean</option>
+                <option value="shirt">shirt</option>
+                <option value="trouser">trouser</option>
+                <option value="short">short</option>
+                <option value="hoodie">hoodie</option>
+                <option value="other">other</option>
+              </select>
+
             </div>
+            
+
 
 
             <div>
               <label>Size</label>
-              <input 
-                value={size} 
-                onChange={e => setSize(e.target.value)} 
-              />
+              
+              <select value={size} onChange={e => setSize(e.target.value)} >
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="other">other</option>
+              </select>
             </div>
 
 
@@ -152,11 +189,15 @@ function Home() {
             </div>
 
             <div>
-              <label>source</label>
-              <input 
-                value={source} 
-                onChange={e => setSource(e.target.value)} 
-              />
+            <label>Source</label>
+            <select value={size} onChange={e => setSource(e.target.value)} >
+                <option value="banglore">banglore</option>
+                <option value="myntra">myntra</option>
+                <option value="ajio">ajio</option>
+                <option value="online">online</option>
+                <option value="38">38</option>
+                <option value="other">other</option>
+              </select>
             </div>
 
             <div>

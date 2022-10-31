@@ -60,6 +60,3 @@ body {
   height: 100%;
 }
 
-
-div.settings label       { text-align:right; }
-div.settings label:after { content: ":"; }
