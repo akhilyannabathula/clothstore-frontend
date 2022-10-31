@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/clothstore-frontend/static/css/main.aec895b4.css",
-    "main.js": "/clothstore-frontend/static/js/main.953da893.js",
+    "main.js": "/clothstore-frontend/static/js/main.732116bc.js",
     "static/media/glyphicons-halflings-regular.svg": "/clothstore-frontend/static/media/glyphicons-halflings-regular.060b2710bdbbe3dfe48b.svg",
     "static/media/glyphicons-halflings-regular.ttf": "/clothstore-frontend/static/media/glyphicons-halflings-regular.4692b9ec53fd5972caa2.ttf",
     "static/media/glyphicons-halflings-regular.woff": "/clothstore-frontend/static/media/glyphicons-halflings-regular.82b1212e45a2bc35dd73.woff",
@@ -9,10 +9,10 @@
     "static/media/glyphicons-halflings-regular.woff2": "/clothstore-frontend/static/media/glyphicons-halflings-regular.be810be3a3e14c682a25.woff2",
     "index.html": "/clothstore-frontend/index.html",
     "main.aec895b4.css.map": "/clothstore-frontend/static/css/main.aec895b4.css.map",
-    "main.953da893.js.map": "/clothstore-frontend/static/js/main.953da893.js.map"
+    "main.732116bc.js.map": "/clothstore-frontend/static/js/main.732116bc.js.map"
   },
   "entrypoints": [
     "static/css/main.aec895b4.css",
-    "static/js/main.953da893.js"
+    "static/js/main.732116bc.js"
   ]
 }
