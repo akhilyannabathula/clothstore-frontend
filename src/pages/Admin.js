@@ -11,8 +11,8 @@ function get_shirts_data(unprocessed_data){
   
   var size_stats = unprocessed_data.size_stats
   for (let key in size_stats) {
-     if (size_stats.hasOwnProperty(key) && key!='jean') {
-       processed_data.push({ ...{"name": key}, ...size_stats[key] }) 
+     if (size_stats.hasOwnProperty(key) && key!=='jean') {
+       processed_data.push({ ...{"name": key+'--'+size_stats[key].total}, ...size_stats[key] }) 
      }
    }
    
@@ -27,8 +27,8 @@ function get_shirts_data(unprocessed_data){
   
   var size_stats = unprocessed_data.size_stats
   for (let key in size_stats) {
-     if (size_stats.hasOwnProperty(key) && key=='jean') {
-       processed_data.push({ ...{"name": key}, ...size_stats[key] }) 
+     if (size_stats.hasOwnProperty(key) && key==='jean') {
+       processed_data.push({ ...{"name": key+'--'+size_stats[key].total}, ...size_stats[key] }) 
      }
    }
    
@@ -45,6 +45,8 @@ function get_price_data(unprocessed_data){
      processed_data.push({ "name": key, "amount":price_stats[key]}) 
     }
  }
+
+    console.log(processed_data)
     return processed_data;
 }
 

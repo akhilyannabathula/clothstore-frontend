@@ -30,6 +30,24 @@ const RecentOrders = () => {
   }, [])
 
 
+  
+  const saveDB = async () =>{
+
+       
+        const deleteResponse = await fetch( baseURL+'save-database', {
+          method: 'POST',
+          headers: {Authorization: 'Bearer '+secrets.token, 'Content-Type': 'application/json'},
+        });
+
+        if (!deleteResponse.ok) {
+          alert("!failed try again");
+        }
+        else{ alert("saved succesfully")}
+
+
+  }
+
+
   const onDelete = async () => {
 
     console.log("button clieckd")
@@ -94,6 +112,7 @@ const RecentOrders = () => {
     <label> Password </label>
     <input type="password" onChange={handlePasswordtextChange} className="inputText" value={passwordValue}></input>
     <button onClick={onDelete}>Delete</button>
+    <button onClick={saveDB}>Save DB</button>
     <JsonToTable json={users} />
     </div>
   )

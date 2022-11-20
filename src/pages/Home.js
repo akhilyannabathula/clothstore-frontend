@@ -12,6 +12,7 @@ import '../homepage.css'
 
 import { baseURL } from '../configs/urls';
 import secrets from "../configs/secrets.json"
+import priceList from "../configs/prices.json"
 
 function Home() {
 
@@ -25,6 +26,8 @@ function Home() {
   const [size, setSize] = useState('S');
   const [itemType, setItemType] = useState('tshirt');
   const [price, setPrice] = useState(0);
+  const [actualPrice, setactualPrice] = useState(475);
+  const [brand,setBrand] = useState('');
   const [name, setName] = useState('');
   const [description, setdescription] = useState('');
   const [source, setSource] = useState('banglore');
@@ -32,6 +35,14 @@ function Home() {
   const [appStatus, setappStatus] = useState('Down');
 
 
+  const handleBrandChange = event => {
+    var choice = event.target.value;
+    setBrand(choice)
+    console.log('value is:', event.target.value);
+    console.log("relevent actual price is",  priceList[choice])
+    setactualPrice(priceList[choice])
+
+  };
 
   const invokeBackend = () => {
     fetch( baseURL+"health", {
@@ -88,7 +99,7 @@ function Home() {
   ////////////////////////////////////////// 
   const addNewItem = () => {
       let num = items.length + 1; 
-      let newEntry = {id: num, status: false, customer_name:name, phone_number: mobileNumber, item_type:itemType, size: size, description:description, sold_price: price, source:source}
+      let newEntry = {id: num, status: false, customer_name:name, phone_number: mobileNumber, item_type:itemType, size: size, description:description, sold_price: price, source:source, brand:brand, actual_price:actualPrice}
       setItems([...items, newEntry]);    
   }
 
@@ -146,17 +157,38 @@ function Home() {
             <label>Item Type</label>
             <select value={itemType} onChange={e => setItemType(e.target.value)} >
                 <option value="tshirt">Tshirt</option>
+                <option value="collar-tshirt">Collar-Tshirt</option>
                 <option value="jean">Jean</option>
                 <option value="shirt">shirt</option>
                 <option value="trouser">trouser</option>
                 <option value="short">short</option>
                 <option value="hoodie">hoodie</option>
+                <option value="sweatshirt">sweatshirt</option>
+                <option value="underwear">underwear</option>
                 <option value="other">other</option>
               </select>
 
             </div>
             
-
+            <div>
+            <label>Brand</label>
+            <select value={brand} onChange={handleBrandChange} >
+                <option value="snitch">snitch</option>
+                <option value="buffalow">buffalow</option>
+                <option value="ms">M&S</option>
+                <option value="lee-shirt">lee,levis,wrangler shirt</option>
+                <option value="spykar-jean">Spykar jean</option>
+                <option value="peterengland-jean">Peterengland jean</option>
+                <option value="max-jean">Max jean</option>
+                <option value="roadster-jean">Roadster jean</option>
+                <option value="uspolo-underwear">USPolo underwear</option>
+                <option value="jj-sweatshirt">J&J sweatshirt</option>
+                <option value="jj-tshirt">J&J tshirt</option>
+                <option value="jj-Ctshirt">J&J Collar tshirt</option>
+                <option value="UCB-Ctshirt">UCB Collar tshirt</option>
+                <option value="hoodie">WC hoodie</option>
+              </select>
+            </div>
 
 
             <div>
