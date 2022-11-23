@@ -7,6 +7,7 @@ export default function Navbar() {
       <ul>
         <CustomLink to="/clothstore-frontend/admin">Admin and Stats</CustomLink>
         <CustomLink to="/clothstore-frontend/recent">Recent Orders</CustomLink>
+        <CustomLink to="/clothstore-frontend/edit">Edit Item</CustomLink>
       </ul>
         
       

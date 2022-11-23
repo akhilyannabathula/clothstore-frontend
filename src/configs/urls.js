@@ -1,6 +1,6 @@
 // http.js
 
-const env = 'production'
+const env = 'development'
 
 const getBaseUrl = () => {
     let url;

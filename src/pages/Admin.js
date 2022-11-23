@@ -63,6 +63,8 @@ export default function Admin() {
 
   const [users, setUsers] = useState([])
 
+  const [orderId, setOrderId] = useState('')
+
 
   const handleFromDateChange = event => {
     setFromDate(event.target.value);
@@ -72,6 +74,11 @@ export default function Admin() {
   const handleToDateChange = event => {
     setToDate(event.target.value);
     console.log('to date is', event.target.value);
+  };
+
+    const handleOrderIdChange = event => {
+    setOrderId(event.target.value);
+    console.log('Order id is', event.target.value);
   };
 
   const fetchData = () => {
@@ -98,6 +105,7 @@ export default function Admin() {
 
 
   const handleClick = async () => {
+  if(orderId === ''){
     try {
       const response = await fetch( baseURL+`stats?from_date=${fromDate}&to_date=${toDate}`, {
         method: 'GET',
@@ -111,7 +119,24 @@ export default function Admin() {
     } finally {
       
     }
-    
+  }
+  else{
+      try {
+      const response = await fetch( baseURL+`stats?from_date=${fromDate}&to_date=${toDate}&order_id=${orderId}`, {
+        method: 'GET',
+        headers: {Authorization: 'Bearer '+secrets.token }
+      });
+      const result = await response.json();
+      setUsers(result);
+      console.log(result)
+    } catch (err) {
+
+    } finally {
+
+    }
+  }
+
+
     console.log("button clieckd")
   
   }
@@ -125,6 +150,8 @@ export default function Admin() {
         <input type="text" onChange={handleFromDateChange} value={fromDate}></input>
         <label>To Date</label>
         <input type="text" onChange={handleToDateChange} value={toDate}></input>
+        <label>Order Id</label>
+        <input type="text" onChange={handleOrderIdChange} value={orderId}></input>
         <button onClick={handleClick}>Filter again</button>
         <ResponsiveContainer width="100%" height="100%">
         <BarChart
