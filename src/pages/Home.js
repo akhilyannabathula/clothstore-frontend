@@ -177,6 +177,7 @@ function Home() {
                 <option value="buffalow">buffalow</option>
                 <option value="ms">M&S</option>
                 <option value="lee-shirt">lee,levis,wrangler shirt</option>
+                <option value="indigo-nation">indigo-nation,scullers,jm</option>
                 <option value="spykar-jean">Spykar jean</option>
                 <option value="peterengland-jean">Peterengland jean</option>
                 <option value="max-jean">Max jean</option>
