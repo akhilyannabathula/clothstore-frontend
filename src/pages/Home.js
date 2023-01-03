@@ -26,6 +26,7 @@ function Home() {
   const [size, setSize] = useState('S');
   const [itemType, setItemType] = useState('tshirt');
   const [price, setPrice] = useState(0);
+  const [Customprice, setCustomPrice] = useState(0);
   const [actualPrice, setactualPrice] = useState(475);
   const [brand,setBrand] = useState('');
   const [name, setName] = useState('');
@@ -98,9 +99,17 @@ function Home() {
   // Add task 
   ////////////////////////////////////////// 
   const addNewItem = () => {
-      let num = items.length + 1; 
-      let newEntry = {id: num, status: false, customer_name:name, phone_number: mobileNumber, item_type:itemType, size: size, description:description, sold_price: price, source:source, brand:brand, actual_price:actualPrice}
-      setItems([...items, newEntry]);    
+      let num = items.length + 1;
+      let cp = 0
+      if(Customprice != 0){
+        cp = Customprice-500;
+      }
+      else{
+        cp = actualPrice;
+      }
+      let newEntry = {id: num, status: false, customer_name:name, phone_number: mobileNumber, item_type:itemType, size: size, description:description, sold_price: price, source:source, brand:brand, actual_price:cp}
+      setItems([...items, newEntry]); 
+      setCustomPrice(0)   
   }
 
   // Delete task 
@@ -188,6 +197,7 @@ function Home() {
                 <option value="jj-Ctshirt">J&J Collar tshirt</option>
                 <option value="UCB-Ctshirt">UCB Collar tshirt</option>
                 <option value="hoodie">WC hoodie</option>
+                <option value="other"> Other </option>
               </select>
             </div>
 
@@ -218,6 +228,15 @@ function Home() {
                 value={price}
                 type='number' 
                 onChange={e => setPrice(e.target.value)} 
+              />
+            </div>
+
+            <div>
+              <label>Ap</label>
+              <input 
+                value={Customprice}
+                type='number' 
+                onChange={e => setCustomPrice(e.target.value)} 
               />
             </div>
 
